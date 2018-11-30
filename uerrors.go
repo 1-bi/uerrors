@@ -1,4 +1,4 @@
-package main
+package uerrors
 
 import (
 	"bytes"
