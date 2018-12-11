@@ -99,7 +99,7 @@ func (this *baseCodeError) Build(args ...string) CodeError {
 	lenParamsVal := len(args)
 	lenParams := len(paramsInContent)
 
-	fmt.Println("oraanl ")
+	fmt.Println(this.msgBody)
 	fmt.Println(paramsInContent)
 
 	if lenParams != lenParamsVal {
