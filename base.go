@@ -59,7 +59,7 @@ func (this *baseCodeError) getParamsInContent(content string) []string {
 	paramSlice := make([]string, 0)
 
 	tmpendInd := len(content)
-	tmpstring := content[0:tmpendInd]
+	tmpstring := content
 
 	var ind, endSymbolInd int
 	var matchstring, argmentName string
@@ -95,6 +95,7 @@ func (this *baseCodeError) reverse(ss []string) {
 func (this *baseCodeError) Build(args ...string) CodeError {
 
 	// --- check the content argument length ---
+
 	paramsInContent := this.getParamsInContent(this.msgBody)
 	lenParamsVal := len(args)
 	lenParams := len(paramsInContent)
@@ -118,9 +119,8 @@ func (this *baseCodeError) Build(args ...string) CodeError {
 			tmpstring = strings.Replace(tmpstring, paramKey, this.convertToString(val), -1)
 		}
 	}
-	this.msgBody = tmpstring
 
-	return this
+	return NewCodeErrorWithPrefix(this.prefix, this.code, tmpstring)
 }
 
 func (this *baseCodeError) convertToString(value interface{}) string {
@@ -193,9 +193,8 @@ func (this *baseCodeError) BuildByMap(args map[string]interface{}) CodeError {
 			tmpstring = strings.Replace(tmpstring, paramKey, this.convertToString(val), -1)
 		}
 	}
-	this.msgBody = tmpstring
 
-	return this
+	return NewCodeErrorWithPrefix(this.prefix, this.code, tmpstring)
 }
 
 func (this *baseCodeError) WithMsgBody(content string) CodeError {

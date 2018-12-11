@@ -33,9 +33,12 @@ func Test_Errorcode_Build(t *testing.T) {
 
 	//log.Printf()
 
-	errorCode.Build("hello-message ", "my deal-other  ", "define")
+	res := errorCode.Build("hello-message ", "my deal-other  ", "define")
+	fmt.Println(res)
 
-	fmt.Println(errorCode.Error())
+	fmt.Println("case 2")
+	res = errorCode.Build("hello-message2 ", "my deal-other2  ", "define2")
+	fmt.Println(res)
 
 }
 
