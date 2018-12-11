@@ -99,6 +99,9 @@ func (this *baseCodeError) Build(args ...string) CodeError {
 	lenParamsVal := len(args)
 	lenParams := len(paramsInContent)
 
+	fmt.Println("oraanl ")
+	fmt.Println(paramsInContent)
+
 	if lenParams != lenParamsVal {
 		msg := "The quantity of value inputed  doesn't  match name defined in message. The param names is " + strconv.Itoa(lenParams) + ", and param values is " + strconv.Itoa(lenParamsVal)
 		return ErrParamsNotMatch.WithMsgBody(msg)
