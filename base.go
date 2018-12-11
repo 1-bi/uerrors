@@ -58,8 +58,8 @@ func (this *baseCodeError) getParamsInContent(content string) []string {
 
 	paramSlice := make([]string, 0)
 
-	tmpstring := content
 	tmpendInd := len(content)
+	tmpstring := content[0:tmpendInd]
 
 	var ind, endSymbolInd int
 	var matchstring, argmentName string
